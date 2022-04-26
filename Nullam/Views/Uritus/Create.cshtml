@@ -1,0 +1,42 @@
+﻿@model Nullam.Models.UritusModel
+
+<h4>Ürituse lisamine</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Details">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UrituseNimi" class="control-label"></label>
+                <input asp-for="UrituseNimi" class="form-control" />
+                <span asp-validation-for="UrituseNimi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToimumisAeg" class="control-label"></label>
+                <input asp-for="ToimumisAeg" type="date" min="@DateTime.Today.ToString("yyyy-MM-dd")" class="form-control" />
+                <span asp-validation-for="ToimumisAeg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Koht" class="control-label"></label>
+                <input asp-for="Koht" class="form-control" />
+                <span asp-validation-for="Koht" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lisainfo" class="control-label"></label>
+                <input asp-for="Lisainfo" class="form-control" />
+                <span asp-validation-for="Lisainfo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
